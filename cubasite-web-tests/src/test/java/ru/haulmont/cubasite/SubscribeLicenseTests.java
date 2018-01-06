@@ -42,8 +42,6 @@ public class SubscribeLicenseTests {
         wd.findElement(By.cssSelector("input.style-scope.cwb-input")).sendKeys("2");
         wd.findElement(By.xpath("//div[@id='blockSelect']//iron-icon[normalize-space(.)='']")).click();
         wd.findElement(By.xpath("//paper-listbox[@id='periodListBox']//div[normalize-space(.)='$59.98']")).click();
-        wd.findElement(By.id("checkboxContainer")).click();
-        wd.findElement(By.xpath("//cwb-option-dialog[@id='licenseDialog']//div[normalize-space(.)='Cancel']")).click();
         wd.findElement(By.xpath("//cwb-cart-license-agreement[@id='licenseAgreementElement']/div/paper-checkbox/div[2]/div")).click();
         wd.findElement(By.xpath("//cwb-hold-block[@id='holdBlock']//div[normalize-space(.)='CONTINUE']")).click();
         wd.findElement(By.xpath("//cwb-hold-block[@id='holdBlock']/div/div/div[2]/cwb-cart-layout-block[3]/div/cwb-button/div")).click();
