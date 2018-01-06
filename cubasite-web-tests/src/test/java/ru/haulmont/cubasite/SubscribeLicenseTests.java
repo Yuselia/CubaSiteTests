@@ -22,10 +22,6 @@ public class SubscribeLicenseTests {
     public void setUp() throws Exception {
         wd = new FirefoxDriver(new FirefoxOptions().setLegacy(true));
         wd.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
-    }
-    
-    @Test
-    public void SubscribeLicenseTests() {
         wd.get("http://192.168.44.162:8280/");
         wd.findElement(By.linkText("Sign in")).click();
         wd.findElement(By.id("edit-name")).click();
@@ -35,6 +31,11 @@ public class SubscribeLicenseTests {
         wd.findElement(By.id("edit-pass")).clear();
         wd.findElement(By.id("edit-pass")).sendKeys("1qaz");
         wd.findElement(By.id("edit-submit")).click();
+    }
+    
+    @Test
+    public void testSubscribeLicense() {
+
         wd.findElement(By.linkText("Store")).click();
         wd.findElement(By.xpath("//div[@class='field-items']/div/cwb-main/iron-lazy-pages/cwb-market/iron-lazy-pages/cwb-home/div/div[1]/cwb-button-link/a/cwb-button/div")).click();
         wd.findElement(By.cssSelector("input.style-scope.cwb-input")).click();
