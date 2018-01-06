@@ -1,6 +1,8 @@
 package ru.haulmont.cubasite;
 
+import com.google.gson.annotations.Until;
 import org.openqa.selenium.firefox.FirefoxOptions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
@@ -14,6 +16,8 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.*;
 import static org.openqa.selenium.OutputType.*;
+import static org.openqa.selenium.support.ui.ExpectedConditions.presenceOfElementLocated;
+
 
 public class SubscribeLicenseTests {
     FirefoxDriver wd;
@@ -21,6 +25,7 @@ public class SubscribeLicenseTests {
     @BeforeMethod
     public void setUp() throws Exception {
         wd = new FirefoxDriver(new FirefoxOptions().setLegacy(true));
+        WebDriverWait wait = new WebDriverWait(wd, 60);
         wd.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
         wd.get("http://192.168.44.162:8280/");
         wd.findElement(By.linkText("Sign in")).click();
@@ -31,11 +36,12 @@ public class SubscribeLicenseTests {
         wd.findElement(By.id("edit-pass")).clear();
         wd.findElement(By.id("edit-pass")).sendKeys("1qaz");
         wd.findElement(By.id("edit-submit")).click();
+        wait.until(presenceOfElementLocated(By.xpath("//div[@class='header-options']/ul/li/span")));
     }
     
     @Test
     public void testSubscribeLicense() {
-
+        wd.get("http://192.168.44.162:8280/store");
         wd.findElement(By.linkText("Store")).click();
         wd.findElement(By.xpath("//div[@class='field-items']/div/cwb-main/iron-lazy-pages/cwb-market/iron-lazy-pages/cwb-home/div/div[1]/cwb-button-link/a/cwb-button/div")).click();
         wd.findElement(By.cssSelector("input.style-scope.cwb-input")).click();
@@ -44,6 +50,7 @@ public class SubscribeLicenseTests {
         wd.findElement(By.xpath("//div[@id='blockSelect']//iron-icon[normalize-space(.)='']")).click();
         wd.findElement(By.xpath("//paper-listbox[@id='periodListBox']//div[normalize-space(.)='$59.98']")).click();
         wd.findElement(By.xpath("//cwb-cart-license-agreement[@id='licenseAgreementElement']/div/paper-checkbox/div[2]/div")).click();
+        //Переделать следующую строку - элемент не всегда находится
         wd.findElement(By.xpath("//cwb-hold-block[@id='holdBlock']//div[normalize-space(.)='CONTINUE']")).click();
         wd.findElement(By.xpath("//cwb-hold-block[@id='holdBlock']/div/div/div[2]/cwb-cart-layout-block[3]/div/cwb-button/div")).click();
         wd.findElement(By.xpath("//cwb-option-dialog[@id='showCartInfoCodeModal']/paper-dialog/div[2]/cwb-button[2]/div")).click();
