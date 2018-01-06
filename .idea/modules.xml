@@ -2,9 +2,11 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/cubaSiteTests.iml" filepath="$PROJECT_DIR$/.idea/modules/cubaSiteTests.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/cubaSiteTests_main.iml" filepath="$PROJECT_DIR$/.idea/modules/cubaSiteTests_main.iml" group="cubaSiteTests" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/cubaSiteTests_test.iml" filepath="$PROJECT_DIR$/.idea/modules/cubaSiteTests_test.iml" group="cubaSiteTests" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/cubasite-web-tests.iml" filepath="$PROJECT_DIR$/.idea/modules/cubasite-web-tests.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/cubasite-web-tests_main.iml" filepath="$PROJECT_DIR$/.idea/modules/cubasite-web-tests_main.iml" group="cubasite-web-tests" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/cubasite-web-tests_test.iml" filepath="$PROJECT_DIR$/.idea/modules/cubasite-web-tests_test.iml" group="cubasite-web-tests" />
     </modules>
   </component>
 </project>
